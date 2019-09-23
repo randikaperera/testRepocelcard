@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="EP_6D_BILLING_LB" xmlns="http://ws.apache.org/ns/synapse">
+  <loadbalance algorithm="org.apache.synapse.endpoints.algorithms.RoundRobin">
+    <endpoint name="EP_6D_BILLING_LB_1">
+      <address trace="disable" uri="http://10.10.2.69:18082/6dbillingApp/BillingAPI">
+        <timeout>
+          <duration>30000</duration>
+          <responseAction>fault</responseAction>
+        </timeout>
+        <suspendOnFailure>
+          <errorCodes>-1</errorCodes>
+          <initialDuration>0</initialDuration>
+          <progressionFactor>1.0</progressionFactor>
+          <maximumDuration>0</maximumDuration>
+        </suspendOnFailure>
+        <markForSuspension>
+          <errorCodes>-1</errorCodes>
+        </markForSuspension>
+      </address>
+    </endpoint>
+    <endpoint name="EP_6D_BILLING_LB_2">
+      <address trace="disable" uri="http://10.10.2.69:18085/6dbillingApp/BillingAPI">
+        <timeout>
+          <duration>30000</duration>
+          <responseAction>fault</responseAction>
+        </timeout>
+        <suspendOnFailure>
+          <errorCodes>-1</errorCodes>
+          <initialDuration>0</initialDuration>
+          <progressionFactor>1.0</progressionFactor>
+          <maximumDuration>0</maximumDuration>
+        </suspendOnFailure>
+        <markForSuspension>
+          <errorCodes>-1</errorCodes>
+        </markForSuspension>
+      </address>
+    </endpoint>
+    <endpoint name="EP_6D_BILLING_LB_3">
+      <address trace="disable" uri="http://10.10.2.70:18082/6dbillingApp/BillingAPI">
+        <timeout>
+          <duration>30000</duration>
+          <responseAction>fault</responseAction>
+        </timeout>
+        <suspendOnFailure>
+          <errorCodes>-1</errorCodes>
+          <initialDuration>0</initialDuration>
+          <progressionFactor>1.0</progressionFactor>
+          <maximumDuration>0</maximumDuration>
+        </suspendOnFailure>
+        <markForSuspension>
+          <errorCodes>-1</errorCodes>
+        </markForSuspension>
+      </address>
+    </endpoint>
+    <endpoint name="EP_6D_BILLING_LB_4">
+      <address trace="disable" uri="http://10.10.2.70:18085/6dbillingApp/BillingAPI">
+        <timeout>
+          <duration>30000</duration>
+          <responseAction>fault</responseAction>
+        </timeout>
+        <suspendOnFailure>
+          <errorCodes>-1</errorCodes>
+          <initialDuration>0</initialDuration>
+          <progressionFactor>1.0</progressionFactor>
+          <maximumDuration>0</maximumDuration>
+        </suspendOnFailure>
+        <markForSuspension>
+          <errorCodes>-1</errorCodes>
+        </markForSuspension>
+      </address>
+    </endpoint>
+  </loadbalance>
+</endpoint>

@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="6D_BILLING_FAULT" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+  <log level="full"/>
+  <property expression="get-property('ERROR_CODE')" name="ErrorCode"
+    scope="default" type="INTEGER" xmlns:ns="http://org.apache.synapse/xsd"/>
+  <log level="custom">
+    <property name="failS" value="=======False Sequence==========="/>
+    <property expression="$ctx:ErrorCode" name="Endpoint Error :" xmlns:ns="http://org.apache.synapse/xsd"/>
+    <property expression="get-property('Action')" name="Action" xmlns:ns="http://org.apache.synapse/xsd"/>
+  </log>
+  <switch source="$ctx:ErrorCode" xmlns:ns="http://org.apache.synapse/xsd">
+    <case regex="101000">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 101000 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_101000</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services Provider</errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="101001">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 101001 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_101001</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services </errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="101500">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 101500 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_101500</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services Provider</errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="101501">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 101501 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_101501</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services </errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="101503">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 101503 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_101503</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services Provider</errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="101504">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 101504 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_101504</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services </errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="101505">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 101505 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_101505</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services Provider</errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="101506">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 101506 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_101506</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services </errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="101507">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 101507 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_101507</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services Provider</errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="101508">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 101508 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_101508</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services </errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="101509">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 101509 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_101509</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services Provider</errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="101510">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 101510 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_101510</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services </errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="309001">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 309001 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_309001</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services Provider</errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="309002">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 309002 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_309002</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services </errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="309003">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 309003 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_309003</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services Provider</errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="303100">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 303100 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_303100</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services </errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="304100">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 304100 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_304100</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services Provider</errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="305100">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 305100 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_305100</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services </errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <case regex="401000">
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="Error Code -> 401000 : An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <getBusRootResponse xmlns="">
+            <error>
+              <errorCode>ESB_401000</errorCode>
+              <errorMsgTitle>ESB Service Error</errorMsgTitle>
+              <errorMsg>We are unable to get Connection to BusRoot Services Provider</errorMsg>
+            </error>
+          </getBusRootResponse>
+        </format>
+        <args/>
+      </payloadFactory>
+    </case>
+    <default>
+      <log description="LogErrorMessage" level="custom">
+        <property expression="get-property('MessageReferenceId')" name="MessageReferenceId ERROR :"/>
+        <property name="FaultSequenceErrorMessage" value="An unexpected error occured for service"/>
+        <property expression="get-property('ERROR_CODE')" name="ERROR_CODE"/>
+        <property expression="get-property('ERROR_MESSAGE')" name="ERROR_MESSAGE"/>
+        <property expression="get-property('ERROR_DETAIL')" name="ERROR_DETAIL"/>
+      </log>
+      <payloadFactory media-type="xml">
+        <format>
+          <Fault>
+            <ERROR_CODE>$1</ERROR_CODE>
+            <ERROR_MESSAGE>$2</ERROR_MESSAGE>
+            <ERROR_DETAIL>$3</ERROR_DETAIL>
+          </Fault>
+        </format>
+        <args>
+          <arg evaluator="xml" expression="get-property('ERROR_CODE')"/>
+          <arg evaluator="xml" expression="get-property('ERROR_MESSAGE')"/>
+          <arg evaluator="xml" expression="get-property('ERROR_DETAIL')"/>
+        </args>
+      </payloadFactory>
+    </default>
+  </switch>
+  <property name="HTTP_SC" scope="axis2" type="STRING" value="500"/>
+  <header action="remove" name="To" scope="default"/>
+  <property name="RESPONSE" scope="default" type="STRING" value="true"/>
+</sequence>

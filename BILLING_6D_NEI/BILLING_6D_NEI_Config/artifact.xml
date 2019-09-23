@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="proxyBilling" groupId="www.cellcard.com.kh.BILLING_6D_NEI_Config.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/proxyBilling.xml</file>
+    </artifact>
+    <artifact name="6D_BILLING_API" groupId="www.cellcard.com.kh.BILLING_6D_NEI_Config.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/6D_BILLING_API.xml</file>
+    </artifact>
+    <artifact name="NE_BillingNeiSeq" groupId="www.cellcard.com.kh.BILLING_6D_NEI_Config.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/NE_BillingNeiSeq.xml</file>
+    </artifact>
+</artifacts>

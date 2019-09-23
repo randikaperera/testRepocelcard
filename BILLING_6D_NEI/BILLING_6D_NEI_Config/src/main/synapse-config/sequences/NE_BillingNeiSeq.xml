@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="NE_BillingNeiSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+  <property
+    expression="fn:concat('Basic ', base64Encode('esbuser:esb@385'))"
+    name="Authorization" scope="transport" type="STRING" xmlns:ns="http://org.apache.synapse/xsd"/>
+  <property name="DISABLE_CHUNKING" scope="axis2" type="STRING" value="true"/>
+  <header name="Accept-Encoding" scope="transport" value="gzip,deflate"/>
+  <property description="" name="messageType" scope="axis2"
+    type="STRING" value="application/json"/>
+  <property name="ContentType" scope="axis2" type="STRING" value="application/json"/>
+  <log level="full">
+    <property name="***" value="Before call NE_BillingEp"/>
+    <property expression="$ctx:uuid" name="uuid"/>
+  </log>
+  <call>
+    <endpoint key="gov:/6D/BILLING/endpoints/EP_6D_BILLING_LB.xml"/>
+  </call>
+  <log level="full">
+    <property name="***" value="After call NE_BillingEp"/>
+    <property expression="$ctx:uuid" name="uuid"/>
+  </log>
+</sequence>

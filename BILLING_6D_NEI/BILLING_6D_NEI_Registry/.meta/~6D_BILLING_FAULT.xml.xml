@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><resource name="6D_BILLING_FAULT.xml" isCollection="false" path="/_system/governance/6D/BILLING/sequences/BILLING_6D_NEI_Registry/6D_BILLING_FAULT.xml" registryUrl="https://localhost:9443/registry" status="added">
+    <mediaType>application/vnd.wso2.sequence</mediaType>
+</resource>
