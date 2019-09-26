@@ -15,8 +15,9 @@
   <call>
     <endpoint key="gov:/6D/BILLING/endpoints/EP_6D_BILLING_LB.xml"/>
   </call>
-  <log level="full">
+  <log level="custom">
     <property name="***" value="After call NE_BillingEp"/>
     <property expression="$ctx:uuid" name="uuid"/>
+    <property expression="get-property('client_ip')" name="client_ip"/>
   </log>
 </sequence>
