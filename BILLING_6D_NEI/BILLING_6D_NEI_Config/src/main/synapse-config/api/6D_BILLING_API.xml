@@ -11,9 +11,7 @@
       <property description="" name="messageType" scope="axis2"
         type="STRING" value="application/json"/>
       <property name="ContentType" scope="axis2" type="STRING" value="application/json"/>
-      <send>
-        <endpoint key="gov:/6D/BILLING/endpoints/EP_6D_BILLING_LB.xml"/>
-      </send>
+      <send/>
     </inSequence>
     <outSequence>
       <log level="custom">
