@@ -9,10 +9,11 @@
   <name>BILLING_6D_NEI</name>
   <description>BILLING_6D_NEI</description>
   <modules>
-    <module>BILLING_6D_NEI_Config</module>
+<!--    <module>BILLING_6D_NEI_Config</module> -->
+    <module>BILLING_6D_NEI_Registry</module>
     <module>BILLING_6D_NEI_Config</module>
     <module>BILLING_6D_NEI_Capp</module>
-    <module>BILLING_6D_NEI_Registry</module>
+ 
   </modules>
   <build>
     <plugins>
