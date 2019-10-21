@@ -18,7 +18,9 @@
         <property expression="get-property('MessageReferenceId')" name="MessageReferenceId RS :"/>
         <property expression="get-property('client_ip')" name="client_ip"/>
       </log>
-      <send/>
+      <send>
+        <endpoint key="gov:/6D/BILLING/endpoints/EP_6D_BILLING_LB.xml"/>
+      </send>
     </outSequence>
     <faultSequence>
       <sequence key="gov:6D/BILLING/sequences/6D_BILLING_FAULT.xml"/>
