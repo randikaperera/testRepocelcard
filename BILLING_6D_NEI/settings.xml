@@ -19,5 +19,24 @@
         <artifactory.phase>none</artifactory.phase>
       </properties>
     </profile>
+    <profile>
+      <id>deploy-remote</id>
+      <properties>
+        <maven.car.deploy.skip>false</maven.car.deploy.skip>
+        <maven.deploy.skip>true</maven.deploy.skip>
+        <server.esb.url>${server-esb-url}</server.esb.url>
+        <server.esb.username>${server-esb-username}</server.esb.username>
+        <server.esb.password>${server-esb-password}</server.esb.password>
+        <server.dss.url>${server-dss-url}</server.dss.url>
+        <server.dss.username>${server-dss-username}</server.dss.username>
+        <server.dss.password>${server-dss-password}</server.dss.password>
+        <server.greg.url>${server-greg-url}</server.greg.url>
+        <server.greg.username>${server-greg-username}</server.greg.username>
+        <server.greg.password>${server-greg-password}</server.greg.password>
+        <wso2carbon.username>${wso2carbon-username}</wso2carbon.username>
+        <wso2carbon.password>${wso2carbon-password}</wso2carbon.password>
+        <artifactory.phase>none</artifactory.phase>
+      </properties>
+    </profile>
   </profiles>
 </settings>

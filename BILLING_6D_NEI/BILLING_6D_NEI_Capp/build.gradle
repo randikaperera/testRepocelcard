@@ -14,6 +14,10 @@ dependencies {
 group = 'www.cellcard.com.BILLING_6D_NEI_Capp'
 description = 'BILLING_6D_NEI_Capp'
 
-task deployWSO2(type:Exec) {
+task deployLocal(type:Exec) {
 	commandLine 'mvn', 'org.wso2.maven:maven-car-deploy-plugin:deploy-car', '-Pdeploy-local', "-s../settings.xml"
+}
+
+task deployRemote(type:Exec) {
+	commandLine 'mvn', 'org.wso2.maven:maven-car-deploy-plugin:deploy-car', '-Pdeploy-remote', "-s../settings.xml"
 }
