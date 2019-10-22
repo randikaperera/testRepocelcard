@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-				sh 'curl -u admin:password http://172.16.101.15:8081/artifactory/wso2-keystore/QA/wso2carbon.jks -o ./BILLING_6D_NEI/wso2carbon.jks'
-				sh './BILLING_6D_NEI/gradlew buildWSO2 --stacktrace'
+				sh 'curl -u admin:password http://172.16.101.15:8081/artifactory/wso2-keystore/QA/wso2carbon.jks -o wso2carbon.jks'
+				sh './gradlew buildWSO2 --stacktrace'
             }
         }
 		stage('Deploy') { 
             steps {
-                sh './BILLING_6D_NEI/gradlew deployLocal'
+                sh './gradlew deployLocal'
             }
         }
        
