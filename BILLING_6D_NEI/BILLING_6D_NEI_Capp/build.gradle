@@ -23,8 +23,10 @@ task deployRemote(type:Exec) {
 }
 
 task deploySnapshot(type:Exec) {
-    def username = System.getenv('JFROG_USERNAME');
-    def password = System.getenv('JFROG_PASSWORD');
+    def username = System.getenv('USERNAME');
+    def password = System.getenv('PASSWORD');
+    println('*************************');
+    println(password);
 	def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ,"-Dartifactory-username="+username, "-Dartifactory-password="+password]
 
     commandLine command

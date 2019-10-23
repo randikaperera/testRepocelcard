@@ -29,6 +29,8 @@ pipeline {
       credentialsId: 'ARTIFACTORY',
       usernameVariable: 'USERNAME',
       passwordVariable: 'PASSWORD')]) {
+                    echo '${USERNAME}'
+                    echo '${PASSWORD}'
                     sh './gradlew deploySnapshot'
                 }
             }
