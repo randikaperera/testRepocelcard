@@ -18,11 +18,11 @@ pipeline {
                 sh './gradlew deployLocal'
             }
         }
-       stage('Test') { 
+        /*stage('Test') { 
             steps {
                 sh 'newman run ./test/collection/collection.json -e ./test/collection/Dev_environment.json --insecure'
             }
-        }     
+        }     */
 
         stage('Deploy snapshot') { 
             steps {
