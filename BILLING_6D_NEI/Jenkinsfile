@@ -18,6 +18,12 @@ pipeline {
                 sh './gradlew deployLocal'
             }
         }
+        // TODO: testing stage should go here
+        stage('Deploy snapshot') { 
+            steps {
+                sh './gradlew deploySnapshot'
+            }
+        }
        
     }
 }
