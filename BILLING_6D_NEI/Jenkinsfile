@@ -27,18 +27,17 @@ pipeline {
         }*/
         stage('Test') { 
             steps {
-                //sh 'newman run ./test/collection/collection.json -e ./test/collection/Dev_environment.json --insecure'
 				sh './gradlew testWSO2'
             }
         }     
 		
-		stage('Echo') {
+		/*stage('Echo') {
 		steps{
         withCredentials([string(credentialsId: '2cadccf1-dbce-4825-ae51-f323378ae90b', variable: 'password1')]) {
             echo "'${password1}'!"
         }
 		}
-		}
+		}*/
 
         stage('Deploy snapshot') { 
             steps {
