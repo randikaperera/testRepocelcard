@@ -20,7 +20,7 @@ pipeline {
         }
        stage('Test') { 
             steps {
-                sh './gradlew testWSO2'
+                sh 'newman run ./test/collection/collection.json -e ./test/collection/Dev_environment.json --insecure'
             }
         }     
 
