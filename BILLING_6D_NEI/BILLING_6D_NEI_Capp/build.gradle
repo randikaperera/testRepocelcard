@@ -27,7 +27,7 @@ task deploySnapshot(type:Exec) {
     def password = System.getenv('PASSWORD');
     println('*************************');
     println('username: '+username);
-	def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ,"-Dartifactory-username=admin", "-Dartifactory-password=P@\$\$w0rd"]
+	def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ,"-Dartifactory-username=deployer", "-Dartifactory-password=password"]
 
     commandLine command
 }
