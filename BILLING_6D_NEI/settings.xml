@@ -1,6 +1,6 @@
 <settings>
   <profiles>
-    <!-- <profile>
+    <profile>
       <id>deploy-artifactory</id>
       <properties>
         <maven.car.deploy.skip>true</maven.car.deploy.skip>
@@ -11,7 +11,7 @@
         <artifactory.repo.key>cellcard-middleware-snapshots</artifactory.repo.key>
         <artifactory.phase>deploy</artifactory.phase>
       </properties>
-    </profile> -->
+    </profile>
     <profile>
       <id>deploy-local</id>
       <properties>
