@@ -22,10 +22,10 @@ task deployRemote(type:Exec) {
 	commandLine 'mvn', 'org.wso2.maven:maven-car-deploy-plugin:deploy-car', '-Pdeploy-remote', "-s../settings.xml"
 }
 
-task deploySnapshot(type:Exec) {
+/*task deploySnapshot(type:Exec) {
     def username = System.getenv('JFROG_USERNAME');
     def password = System.getenv('JFROG_PASSWORD');
 	def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ,"-Dartifactory-username="+username, "-Dartifactory-password="+password]
 
     commandLine command
-}
+}*/
