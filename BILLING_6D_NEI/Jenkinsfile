@@ -34,7 +34,7 @@ pipeline {
 		
 		stage('Echo') {
 		steps{
-        withCredentials([string(credentialsId: 'jenkins', variable: 'password1')]) {
+        withCredentials([string(credentialsId: '2cadccf1-dbce-4825-ae51-f323378ae90b', variable: 'password1')]) {
             echo "'${password1}'!"
         }
 		}
