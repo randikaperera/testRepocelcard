@@ -35,6 +35,6 @@ task buildWSO2(type:Exec){
 }
 
 task testWSO2(type:Exec) {
-	commandLine 'newman', 'run', './test/collection/collection.json', '-e', './test/collection/Dev_environment.json', '--insecure'
+	commandLine 'newman', 'run', './test/collection/collection.json', '-e', './test/collection/Dev_environment.json', '--insecure','--debug'
 }
 
