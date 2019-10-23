@@ -1,10 +1,13 @@
 pipeline {
     agent any 
+    options {
+        ansiColor('xterm')
+    }
     stages {
         stage('Build') { 
             steps {
-				sh 'curl -u admin:password http://172.16.101.15:8081/artifactory/wso2-keystore/QA/wso2carbon.jks -o wso2carbon.jks'
-				sh './gradlew buildWSO2 --stacktrace'
+		        sh 'curl -u admin:password http://172.16.101.15:8081/artifactory/wso2-keystore/QA/wso2carbon.jks -o wso2carbon.jks'
+		        sh './gradlew buildWSO2 --stacktrace'
             }
         }
 		stage('Deploy') { 
