@@ -36,6 +36,7 @@ pipeline {
         withCredentials([string(credentialsId: 'jenkins', variable: 'password1')]) {
             echo "'${password1}'!"
         }
+		}
 
         stage('Deploy snapshot') { 
             steps {
