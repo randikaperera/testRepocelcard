@@ -21,7 +21,12 @@ pipeline {
         // TODO: testing stage should go here
         stage('Deploy snapshot') { 
             steps {
-                sh './gradlew deploySnapshot'
+                withCredentials([steps.usernamePassword(
+      credentialsId: 'ARTIFACTORY',
+      usernameVariable: 'JFROG_USERNAME',
+      passwordVariable: 'JFROG_PASSWORD')]) {
+                    sh './gradlew deploySnapshot'
+                }
             }
         }
        
