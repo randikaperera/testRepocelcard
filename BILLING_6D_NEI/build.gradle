@@ -34,7 +34,7 @@ task buildWSO2(type:Exec){
 	commandLine 'mvn', 'clean', 'install'
 }
 
-/*task testWSO2(type:Exec) {
+task testWSO2(type:Exec) {
 	commandLine 'newman' 'run' './test/collection/collection.json' '-e' 'Dev_environment.json' '--insecure'
-}*/
+}
 

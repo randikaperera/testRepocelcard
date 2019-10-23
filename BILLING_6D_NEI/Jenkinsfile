@@ -18,11 +18,12 @@ pipeline {
                 sh './gradlew deployLocal'
             }
         }
-       /*stage('Test') { 
+       stage('Test') { 
             steps {
                 sh './gradlew testWSO2'
             }
-        }     */   // TODO: testing stage should go here
+        }     
+
         stage('Deploy snapshot') { 
             steps {
                 withCredentials([steps.usernamePassword(
