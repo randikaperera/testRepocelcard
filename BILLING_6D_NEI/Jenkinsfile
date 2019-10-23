@@ -13,7 +13,7 @@ pipeline {
 		        sh './gradlew buildWSO2 --stacktrace'
             }
         }
-		stage('Deploy') {
+		/*stage('Deploy') {
             steps {
                 script {
                     esb_server_url = "https://172.16.100.24:9443"
@@ -24,12 +24,18 @@ pipeline {
                 }
                 sh './gradlew deployRemote'
             }
-        }
-        /*stage('Test') { 
+        }*
+        stage('Test') { 
             steps {
-                sh 'newman run ./test/collection/collection.json -e ./test/collection/Dev_environment.json --insecure'
+                //sh 'newman run ./test/collection/collection.json -e ./test/collection/Dev_environment.json --insecure'
+				sh './gradlew testWSO2'
             }
-        }     */
+        }     
+		
+		stage('Echo') {
+        withCredentials([string(credentialsId: 'jenkins', variable: 'password1')]) {
+            echo "'${password1}'!"
+        }
 
         stage('Deploy snapshot') { 
             steps {
