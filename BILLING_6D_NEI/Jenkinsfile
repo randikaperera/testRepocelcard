@@ -18,11 +18,11 @@ pipeline {
                 sh './gradlew deployLocal'
             }
         }
-        stage('Test') { 
+        /*stage('Test') { 
             steps {
-                sh './gradlew testWSO2'
+                sh 'newman run ./test/collection/collection.json -e ./test/collection/Dev_environment.json --insecure'
             }
-        }     
+        }     */
 
         stage('Deploy snapshot') { 
             steps {
@@ -37,14 +37,14 @@ pipeline {
             }
         }
 
-        stage('Deploy release') {
-            /*input{
+        /*stage('Deploy release') {
+            input{
                     message "Press Ok to continue"
                     submitter "mitrai"
                     parameters {
                     string(name:'username', defaultValue: 'user', description: 'Username of the user pressing Ok')
                 }
-            } */
+            } 
             steps {
                 withCredentials([steps.usernamePassword(
       credentialsId: 'ARTIFACTORY',
@@ -54,7 +54,7 @@ pipeline {
                     sh './gradlew releaseToProduction'
                 }
             }
-        }
+        }*/
        
     }
 }
