@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "584c369a-a088-4071-875a-a00a3830f2cd",
+		"name": "Billing Passthrough",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://api3.cellcard.com.kh:8244/services/billing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5bb45fc4-4458-4697-8602-2a4023ff1401",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {{basicToken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"BillingSystem\": {\"request_id\":\"11273291814626\",\"request_timestamp\": \"03072019110629\",\"action\": \"FetchCreditRefund\",\"source\": \"GUI\",\"request\": {\"filter\": {\"limit\": 10,\"offset\": 0},\"credit_refund\": {\"account_id\": {{accountId}},\"service_id\": 85511200175,\"account_name_required\": \"1\",\"approval_status\": \"\"}}}}"
+				},
+				"url": {
+					"raw": "{{hostName}}/services/billing",
+					"host": [
+						"{{hostName}}"
+					],
+					"path": [
+						"services",
+						"billing"
+					]
+				},
+				"description": "{\"BillingSystem\": {\"request_id\":\"11273291814626\",\"request_timestamp\": \"03072019110629\",\"action\": \"FetchCreditRefund\",\"source\": \"GUI\",\"request\": {\"filter\": {\"limit\": 10,\"offset\": 0},\"credit_refund\": {\"account_id\": 92992980,\"service_id\": 85511200175,\"account_name_required\": \"1\",\"approval_status\": \"\"}}}}"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6527a41b-3d92-46fd-9b10-b51816f9744f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "68194ca9-5d3a-4b66-931e-8c68d48ed3f4",
+				"type": "text/javascript",
+				"exec": [
+					"var CryptoJS = require(\"crypto-js\");",
+					"var basicToken = pm.environment.get(\"username\")+\":\"+pm.environment.get(\"password\")",
+					"",
+					"var rawStr = CryptoJS.enc.Utf8.parse(basicToken)",
+					"var base64 = CryptoJS.enc.Base64.stringify(rawStr)",
+					"",
+					"pm.environment.set (\"basicToken\", base64)"
+				]
+			}
+		}
+	]
+}
