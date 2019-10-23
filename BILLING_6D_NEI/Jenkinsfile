@@ -16,11 +16,11 @@ pipeline {
 		stage('Deploy') {
             steps {
                 script {
-                    esb-server-url = "https://172.16.100.24:9443"
-                    esb-server-username = "admin"
-                    esb-server-password = "E!@QA"
-                    wso2carbon-username = "wso2carbon"
-                    wso2carbon-password = "wso2carbon"
+                    esb_server_url = "https://172.16.100.24:9443"
+                    esb_server_username = "admin"
+                    esb_server_password = "E!@QA"
+                    wso2carbon_username = "wso2carbon"
+                    wso2carbon_password = "wso2carbon"
                 }
                 sh './gradlew deployRemote'
             }

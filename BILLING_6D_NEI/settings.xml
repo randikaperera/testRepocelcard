@@ -36,9 +36,9 @@
       <properties>
         <maven.car.deploy.skip>false</maven.car.deploy.skip>
         <maven.deploy.skip>true</maven.deploy.skip>
-        <server.esb.url>${esb-server-url}</server.esb.url>
-        <server.esb.username>${esb-server-username}</server.esb.username>
-        <server.esb.password>${esb-server-password}</server.esb.password>
+        <server.esb.url>${esb_server_url}</server.esb.url>
+        <server.esb.username>${esb_server_username}</server.esb.username>
+        <server.esb.password>${esb_server_password}</server.esb.password>
         <server.dss.url>${dss-server-url}</server.dss.url>
         <server.dss.username>${dss-server-username}</server.dss.username>
         <server.dss.password>${dss-server-password}</server.dss.password>
