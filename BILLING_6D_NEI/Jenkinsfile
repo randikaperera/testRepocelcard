@@ -27,8 +27,8 @@ pipeline {
             steps {
                 withCredentials([steps.usernamePassword(
       credentialsId: 'ARTIFACTORY',
-      usernameVariable: 'JFROG_USERNAME',
-      passwordVariable: 'JFROG_PASSWORD')]) {
+      usernameVariable: 'USERNAME',
+      passwordVariable: 'PASSWORD')]) {
                     sh './gradlew deploySnapshot'
                 }
             }
