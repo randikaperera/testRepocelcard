@@ -13,18 +13,18 @@ pipeline {
 		        sh './gradlew buildWSO2 --stacktrace'
             }
         }
-		/*stage('Deploy') {
+		stage('Deploy') {
             steps {
-                script {
-                    esb_server_url = "https://172.16.100.24:9443"
-                    esb_server_username = "admin"
-                    esb_server_password = "E!@QA"
-                    wso2carbon_username = "wso2carbon"
-                    wso2carbon_password = "wso2carbon"
+                withCredentials([steps.usernamePassword(
+                credentialsId: 'QA_EI_SERVER',
+                usernameVariable: 'USERNAME',
+                passwordVariable: 'PASSWORD')]){
+                    echo 'USERNAME : '+ USERNAME
+                    echo 'PASSWORD: '+ PASSWORD
+                    sh './gradlew deployRemote'
                 }
-                sh './gradlew deployRemote'
             }
-        }*/
+        }
         stage('Test') { 
             steps {
 				sh './gradlew testWSO2'

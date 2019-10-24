@@ -19,7 +19,10 @@ task deployLocal(type:Exec) {
 }
 
 task deployRemote(type:Exec) {
-	commandLine 'mvn', 'org.wso2.maven:maven-car-deploy-plugin:deploy-car', '-Pdeploy-remote', "-s../settings.xml"
+    def username = System.getenv('USERNAME');
+    def password = System.getenv('PASSWORD');
+	def command =['mvn', 'org.wso2.maven:maven-car-deploy-plugin:deploy-car', '-Pdeploy-remote', "-s../settings.xml", "-Desb-server-username="+username, "-Desb-server-password="+password]
+    commandLine command
 }
 
 task deploySnapshot(type:Exec) {
