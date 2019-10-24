@@ -9,7 +9,7 @@
   </parent>
   <groupId>www.cellcard.com.BILLING_6D_NEI_Capp</groupId>
   <artifactId>BILLING_6D_NEI_Capp</artifactId>
-  <version>1.0.0</version>
+  <version>${global.version}</version>
   <packaging>carbon/application</packaging>
   <name>BILLING_6D_NEI_Capp</name>
   <description>BILLING_6D_NEI_Capp</description>
