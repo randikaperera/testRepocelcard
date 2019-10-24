@@ -22,8 +22,8 @@ pipeline {
                     echo 'USERNAME : '+ USERNAME
                     echo 'PASSWORD: '+ PASSWORD
                     sh './gradlew deployRemote'
+                    sleep(time:50,unit:"SECONDS") 
                 }
-                sleep 50
             }
         }
         stage('Test') { 
