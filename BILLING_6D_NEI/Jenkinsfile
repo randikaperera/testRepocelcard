@@ -30,15 +30,6 @@ pipeline {
 				sh './gradlew testWSO2'
             }
         }     
-		
-		/*stage('Echo') {
-		steps{
-        withCredentials([string(credentialsId: '2cadccf1-dbce-4825-ae51-f323378ae90b', variable: 'password1')]) {
-            echo "'${password1}'!"
-        }
-		}
-		}*/
-
         stage('Deploy snapshot') { 
             steps {
                 withCredentials([steps.usernamePassword(
@@ -51,25 +42,5 @@ pipeline {
                 }
             }
         }
-
-        /*stage('Deploy release') {
-            input{
-                    message "Press Ok to continue"
-                    submitter "mitrai"
-                    parameters {
-                    string(name:'username', defaultValue: 'user', description: 'Username of the user pressing Ok')
-                }
-            } 
-            steps {
-                withCredentials([steps.usernamePassword(
-      credentialsId: 'ARTIFACTORY',
-      usernameVariable: 'USERNAME',
-      passwordVariable: 'PASSWORD')]) {
-                    
-                    sh './gradlew releaseToProduction'
-                }
-            }
-        }*/
-       
     }
 }
