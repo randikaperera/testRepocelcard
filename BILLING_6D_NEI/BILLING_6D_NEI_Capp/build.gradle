@@ -22,7 +22,6 @@ task deployRemote(type:Exec) {
     def username = System.getenv('USERNAME');
     def password = System.getenv('PASSWORD');
     def eiServer = System.getenv('EI_SERVER_HOST');
-    println(eiServer)
 	def command =['mvn', 'org.wso2.maven:maven-car-deploy-plugin:deploy-car', '-Pdeploy-remote', "-s../settings.xml", "-Desb-server-username="+username, "-Desb-server-password="+password, "-Desb-server-url="+eiServer]
     commandLine command
 }
@@ -30,9 +29,7 @@ task deployRemote(type:Exec) {
 task deploySnapshot(type:Exec) {
     def username = System.getenv('USERNAME');
     def password = System.getenv('PASSWORD');
-    println('*************************');
-    println('username: '+username);
-	def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ,"-Dartifactory-username="+username, "-Dartifactory-password="+password]
-
+    def artifactoryUrl = System.getenv('ARTIFACTORY_URL');
+	def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ,"-Dartifactory-username="+username, "-Dartifactory-password="+password, "-Dartifactory-url="+artifactoryUrl]
     commandLine command
 }

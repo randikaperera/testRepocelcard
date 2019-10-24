@@ -5,7 +5,7 @@
       <properties>
         <maven.car.deploy.skip>true</maven.car.deploy.skip>
         <maven.deploy.skip>true</maven.deploy.skip>
-        <artifactory.url>http://172.16.101.15:8081/artifactory/</artifactory.url>
+        <artifactory.url>${artifactory-url}</artifactory.url>
         <artifactory.username>${artifactory-username}</artifactory.username>
         <artifactory.password>${artifactory-password}</artifactory.password>
         <artifactory.repo.key>cellcard-middleware-snapshots</artifactory.repo.key>

@@ -5,6 +5,7 @@ pipeline {
     }
     environment {
         MAVEN_OPTS = '-Djansi.force=true'
+        ARTIFACTORY_URL = 'http://172.16.101.15:8081/artifactory/'
         
     }
     stages {
@@ -42,6 +43,7 @@ pipeline {
                 withCredentials([steps.usernamePassword(credentialsId: 'ARTIFACTORY', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     echo 'USERNAME : '+ USERNAME
                     echo 'PASSWORD: '+ PASSWORD
+                    echo 'ARTIFACTORY_URL' + ARTIFACTORY_URL
                     sh './gradlew deploySnapshot'
                 }
             }
