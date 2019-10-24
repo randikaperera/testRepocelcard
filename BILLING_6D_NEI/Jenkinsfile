@@ -22,12 +22,12 @@ pipeline {
                     echo 'USERNAME : '+ USERNAME
                     echo 'PASSWORD: '+ PASSWORD
                     sh './gradlew deployRemote'
-                    sleep(time:50,unit:"SECONDS") 
                 }
             }
         }
         stage('Test') { 
             steps {
+                sleep(45)
 				sh './gradlew testWSO2'
             }
         }     
