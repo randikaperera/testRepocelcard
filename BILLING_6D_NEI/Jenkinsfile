@@ -23,8 +23,8 @@ pipeline {
                     echo 'PASSWORD: '+ PASSWORD
                     sh './gradlew deployRemote'
                 }
+                sleep 50
             }
-            sleep 50
         }
         stage('Test') { 
             steps {
