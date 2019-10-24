@@ -5,6 +5,7 @@ pipeline {
     }
     environment {
         MAVEN_OPTS = '-Djansi.force=true'
+        
     }
     stages {
         stage('Build') { 
@@ -14,13 +15,18 @@ pipeline {
             }
         }
 		stage('Deploy') {
+            environment {
+                EI_SERVER_HOST = "https://172.16.100.24:9443"
+            }
             steps {
                 withCredentials([steps.usernamePassword(
                 credentialsId: 'QA_EI_SERVER',
                 usernameVariable: 'USERNAME',
                 passwordVariable: 'PASSWORD')]){
+
                     echo 'USERNAME : '+ USERNAME
                     echo 'PASSWORD: '+ PASSWORD
+                    echo 'EI_SERVER' : + EI_SERVER_HOST
                     sh './gradlew deployRemote'
                 }
             }
@@ -33,10 +39,7 @@ pipeline {
         }     
         stage('Deploy snapshot') { 
             steps {
-                withCredentials([steps.usernamePassword(
-      credentialsId: 'ARTIFACTORY',
-      usernameVariable: 'USERNAME',
-      passwordVariable: 'PASSWORD')]) {
+                withCredentials([steps.usernamePassword(credentialsId: 'ARTIFACTORY', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     echo 'USERNAME : '+ USERNAME
                     echo 'PASSWORD: '+ PASSWORD
                     sh './gradlew deploySnapshot'
