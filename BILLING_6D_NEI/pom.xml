@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>www.cellcard.com.kh</groupId>
   <artifactId>BILLING_6D_NEI</artifactId>
@@ -8,15 +6,10 @@
   <packaging>pom</packaging>
   <name>BILLING_6D_NEI</name>
   <description>BILLING_6D_NEI</description>
-  <properties>
-    <global.version>1.0.0-SNAPSHOT</global.version>
-  </properties>
   <modules>
-<!--    <module>BILLING_6D_NEI_Config</module> -->
     <module>BILLING_6D_NEI_Registry</module>
     <module>BILLING_6D_NEI_Config</module>
     <module>BILLING_6D_NEI_Capp</module>
- 
   </modules>
   <build>
     <plugins>
@@ -24,7 +17,7 @@
         <artifactId>maven-eclipse-plugin</artifactId>
         <version>2.9</version>
         <configuration>
-          <buildcommands />
+          <buildcommands/>
           <projectnatures>
             <projectnature>org.wso2.developerstudio.eclipse.mavenmultimodule.project.nature</projectnature>
           </projectnatures>
@@ -33,4 +26,3 @@
     </plugins>
   </build>
 </project>
-

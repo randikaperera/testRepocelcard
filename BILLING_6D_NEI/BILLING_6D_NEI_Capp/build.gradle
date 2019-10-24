@@ -33,3 +33,7 @@ task deploySnapshot(type:Exec) {
 	def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ,"-Dartifactory-username="+username, "-Dartifactory-password="+password, "-Dartifactory-url="+artifactoryUrl]
     commandLine command
 }
+
+task updateVersion(type:Exec){
+    commandLine 'mvn','versions:set', '-DnewVersion='+rootProject.ext.version
+}
