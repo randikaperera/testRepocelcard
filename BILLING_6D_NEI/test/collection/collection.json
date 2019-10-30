@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "584c369a-a088-4071-875a-a00a3830f2cd",
+		"_postman_id": "3fb0d6f4-5669-4459-ba36-699a7f52f972",
 		"name": "Billing Passthrough",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "https://api3.cellcard.com.kh:8244/services/billing",
+			"name": "/services/billing",
 			"event": [
 				{
 					"listen": "test",
@@ -79,5 +79,6 @@
 				]
 			}
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
