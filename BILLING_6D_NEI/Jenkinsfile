@@ -11,8 +11,11 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-		        sh 'curl -u admin:password http://172.16.101.15:8081/artifactory/wso2-keystore/QA/wso2carbon.jks -o wso2carbon.jks'
-		        sh './gradlew buildWSO2 --stacktrace'
+                withCredentials([steps.usernamePassword(credentialsId: 'ARTIFACTORY', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    
+                    sh 'curl -u 'USERNAME':'PASSWORD' http://172.16.101.15:8081/artifactory/wso2-keystore/QA/wso2carbon.jks -o wso2carbon.jks'
+                    sh './gradlew buildWSO2 --stacktrace'
+                }
             }
         }
 		stage('Deploy') {
@@ -25,9 +28,6 @@ pipeline {
                 usernameVariable: 'USERNAME',
                 passwordVariable: 'PASSWORD')]){
 
-                    echo 'USERNAME : '+ USERNAME
-                    echo 'PASSWORD: '+ PASSWORD
-                    echo 'EI_SERVER :' + EI_SERVER_HOST
                     sh './gradlew deployRemote'
                 }
             }
@@ -41,9 +41,6 @@ pipeline {
         stage('Deploy snapshot') { 
             steps {
                 withCredentials([steps.usernamePassword(credentialsId: 'ARTIFACTORY', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    echo 'USERNAME : '+ USERNAME
-                    echo 'PASSWORD: '+ PASSWORD
-                    echo 'ARTIFACTORY_URL' + ARTIFACTORY_URL
                     sh './gradlew deploySnapshot'
                 }
             }
