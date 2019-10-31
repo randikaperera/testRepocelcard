@@ -13,7 +13,7 @@ pipeline {
             steps {
                 withCredentials([steps.usernamePassword(credentialsId: 'ARTIFACTORY', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     
-                    sh 'curl -u 'USERNAME':'PASSWORD' http://172.16.101.15:8081/artifactory/wso2-keystore/QA/wso2carbon.jks -o wso2carbon.jks'
+                    sh 'curl -u ${USERNAME}:${PASSWORD} http://172.16.101.15:8081/artifactory/wso2-keystore/QA/wso2carbon.jks -o wso2carbon.jks'
                     sh './gradlew buildWSO2 --stacktrace'
                 }
             }
