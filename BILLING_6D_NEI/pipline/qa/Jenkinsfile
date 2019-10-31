@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                dir("/home/jenkins/ei") {
+                dir("/etc/ssl/wso2/qa") {
                     fileOperations([fileCopyOperation(excludes: '', flattenFiles: true, includes: 'wso2carbon.jks', targetLocation: "${WORKSPACE}")])
                 }
                 sh './gradlew buildWSO2 --stacktrace'
