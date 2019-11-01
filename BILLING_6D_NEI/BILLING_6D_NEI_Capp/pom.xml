@@ -165,8 +165,8 @@
                         <contextUrl>${artifactory.url}</contextUrl>
                         <username>${artifactory.username}</username>
                         <password>${artifactory.password}</password>
-                        <repoKey>${artifactory.repo.key}</repoKey>
-                        <snapshotRepoKey>${artifactory.repo.key}</snapshotRepoKey>
+                        <repoKey>${artifactory.repo.release}</repoKey>
+                        <snapshotRepoKey>${artifactory.repo.snapshot}</snapshotRepoKey>
                     </publisher>
                 </configuration>
             </execution>
