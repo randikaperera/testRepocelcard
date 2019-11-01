@@ -1,0 +1,52 @@
+pipeline {
+    agent any 
+    options {
+        ansiColor('xterm')
+    }
+    environment {
+        MAVEN_OPTS = '-Djansi.force=true'
+        ARTIFACTORY_URL = 'http://172.16.101.15:8081/artifactory/'
+        
+    }
+    stages {
+        stage('Git') {
+            steps {
+                step([$class: 'WsCleanup'])
+                checkout scm
+            }
+        }
+		stage('Release') {
+            steps {
+                withCredentials([steps.usernamePassword(
+                credentialsId: 'GIT',
+                usernameVariable: 'GIT_USERNAME',
+                passwordVariable: 'GIT_PASSWORD')]){ 
+                    sh './gradlew releaseVersion'
+                }
+            }
+        }
+        stage('Checkout release') {
+            steps {
+                script{
+                    def ret = sh(script: 'git describe --abbrev=0', returnStdout: true)
+                    sh 'git checkout tags/'+ret
+                }
+            }
+        }
+
+        stage('Upload to artifactory') {
+            steps {
+                withCredentials([steps.usernamePassword(
+      credentialsId: 'ARTIFACTORY',
+      usernameVariable: 'JFROG_USERNAME',
+      passwordVariable: 'JFROG_PASSWORD')]) {
+                    echo '${JFROG_USERNAME_1}'
+                    echo '${JFROG_PASSWORD_1}'
+                    sh './gradlew deployToArtifactory'
+                }
+                 
+            }
+        }
+
+    }
+}
