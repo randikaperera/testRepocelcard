@@ -40,7 +40,7 @@ pipeline {
         stage('Deploy snapshot') { 
             steps {
                 withCredentials([steps.usernamePassword(credentialsId: 'ARTIFACTORY', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh './gradlew deploySnapshot'
+                    sh './gradlew deployToArtifactory'
                 }
             }
         }

@@ -26,14 +26,17 @@ task deployRemote(type:Exec) {
     commandLine command
 }
 
-task deploySnapshot(type:Exec) {
-    def username = System.getenv('USERNAME');
-    def password = System.getenv('PASSWORD');
+task deployToArtifactory(type:Exec) {
+    def username = System.getenv('JFROG_USERNAME');
+    def password = System.getenv('JFROG_PASSWORD');
     def artifactoryUrl = System.getenv('ARTIFACTORY_URL');
 	def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ,"-Dartifactory-username="+username, "-Dartifactory-password="+password, "-Dartifactory-url="+artifactoryUrl]
     commandLine command
 }
 
-task updateVersion(type:Exec){
-    commandLine 'mvn','versions:set', '-DnewVersion='+rootProject.ext.version
+task releaseVersion(type:Exec){
+	def env = System.getenv();
+	def username = System.getenv('GIT_USERNAME');
+	def password = System.getenv('GIT_PASSWORD');
+	commandLine 'mvn', 'release:prepare', 'release:perform'
 }

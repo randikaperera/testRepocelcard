@@ -8,7 +8,8 @@
         <artifactory.url>${artifactory-url}</artifactory.url>
         <artifactory.username>${artifactory-username}</artifactory.username>
         <artifactory.password>${artifactory-password}</artifactory.password>
-        <artifactory.repo.key>cellcard-middleware-snapshots</artifactory.repo.key>
+        <artifactory.repo.snapshot>cellcard-middleware-snapshots</artifactory.repo.snapshot>
+        <artifactory.repo.release>cellcard-middleware-releases</artifactory.repo.release>
         <artifactory.phase>deploy</artifactory.phase>
       </properties>
     </profile>
